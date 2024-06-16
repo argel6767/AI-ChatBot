@@ -3,7 +3,8 @@ import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import './App.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from "@chatscope/chat-ui-kit-react";
 
-const API_KEY = "API_KEY";
+//env variable
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 function App() {
   //initialze typing state as false
@@ -43,9 +44,11 @@ function App() {
 
     //apiMessages { role: "user" or "assistant", content: "message"}
 
+    //change format of each message to match th requre api format
     let apiMessages = chatMessages.map((messageObject) => {
       let role = "";
-      if (messageObject.sender == "ChatGPT") {
+      //check role of sender to assign correct role for OpenAI Request format
+      if (messageObject.sender === "ChatGPT") {
         role = "assistant";
       }
       else {
@@ -58,22 +61,37 @@ function App() {
       role: "system",
       content: "Someone trying too hard to be cool."
     }
+    
     //api request object
     const apiRequestBody = {
       "model": "gpt-3.5-turbo",
       "messages": [systemMessage,
-       [...apiMessages] ]//the message history
+       ...apiMessages ]//the message history
     };
 
     //fetch request to OpenAI API
-    await fetch("https://api.openai.com/vi/chat/completions", {
+    await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer" + API_KEY,
+        "Authorization": "Bearer " + API_KEY,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(apiRequestBody)
-    })
+      //convert data to json format
+    }).then((data) => {
+      return data.json();
+    }).then((data) => {
+      //find repsonse in json
+      let apiReponse = data.choices[0].message.content
+      //add reponse to message history
+      setMessages([...chatMessages, {
+        message: apiReponse,
+        sender : "ChatGPT",
+        direction: "incoming"
+      }]);
+      //ChatGPT done "typing/thinking"
+      setTyping(false);
+    });
   }
 
   //chat bot container
