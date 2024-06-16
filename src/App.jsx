@@ -10,7 +10,6 @@ function App() {
   //initialze typing state as false
   const [typing, setTyping] = useState(false);
 
-
   const [messages, setMessages] = useState([
     {
       message: "Hi there! I am ChatGPT",
@@ -18,6 +17,13 @@ function App() {
       direction: "incoming"
     }
   ]); //intialze message list
+
+  const [chatStarted, setChatStarted] = useState(false); //state to determine if user has pressed button and started chat
+  
+  //handle user pressing button
+  const handleStartChat = () => {
+    setChatStarted(true);
+  };
 
   //handle when a user sends a message 
   const handleSend = async (message) => {
@@ -40,11 +46,7 @@ function App() {
   };
 
   async function processMessageToOpenAIAPI(chatMessages) {
-    //chatMessages { sender: "user" or "ChatGPT", message: "message"}
-
-    //apiMessages { role: "user" or "assistant", content: "message"}
-
-    //change format of each message to match th requre api format
+    //change format of each message to match th requre api format: apiMessages { role: "user" or "assistant", content: "message"}
     let apiMessages = chatMessages.map((messageObject) => {
       let role = "";
       //check role of sender to assign correct role for OpenAI Request format
@@ -96,27 +98,34 @@ function App() {
 
   //chat bot container
   return (
-      <div className='App'>
-        <div style={{ position: "relative", height:"700px", width:"700px" }}>
+    <div className='App'>
+    {!chatStarted ? (
+      <div className='buttonContainer'>
+        <div style={{ textAlign: "center", position:"relative"
+         }}>
+        <button onClick={handleStartChat}>Start Chat with ChatGPT Now!</button>
+      </div>
+      </div>
+      
+    ) : (
+      <div style={{ position: "relative", height: "700px", width: "700px" }}>
         <MainContainer>
           <ChatContainer>
             <MessageList
-            scrollBehavior='smooth'
-             typingIndicator= {typing? <TypingIndicator content="ChatGPT is typing..."/> : null}
+              scrollBehavior='smooth'
+              typingIndicator={typing ? <TypingIndicator content="ChatGPT is typing..." /> : null}
             >
-              {messages.map((message, i) => {
-                return <Message key={i} model = {message}/>
-              })}
+              {messages.map((message, i) => (
+                <Message key={i} model={message} />
+              ))}
             </MessageList>
             <MessageInput placeholder='Type your message here' onSend={handleSend} />
           </ChatContainer>
         </MainContainer>
-        </div>
-       
       </div>
-      
-    
-  )
+    )}
+  </div>
+);
 }
 
 export default App

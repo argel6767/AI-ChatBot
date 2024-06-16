@@ -5,3 +5,10 @@
   text-align: center;
 }
 
+.buttonContainer {
+  width: 200px;
+  padding: 50px;
+  background-color: white;
+  border-radius: 15px;
+}
+
