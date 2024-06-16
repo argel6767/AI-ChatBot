@@ -100,7 +100,9 @@ function App() {
         <div style={{ position: "relative", height:"700px", width:"700px" }}>
         <MainContainer>
           <ChatContainer>
-            <MessageList typingIndicator= {typing? <TypingIndicator content="ChatGPT is typing..."/> : null}
+            <MessageList
+            scrollBehavior='smooth'
+             typingIndicator= {typing? <TypingIndicator content="ChatGPT is typing..."/> : null}
             >
               {messages.map((message, i) => {
                 return <Message key={i} model = {message}/>
