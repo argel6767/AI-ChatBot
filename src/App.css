@@ -9,19 +9,29 @@
   position: relative;
   height: 700px;
   width: 700px;
+  padding: 20px;
+  overflow-x: auto;
 }
 
 .buttonContainer {
   width: 200px;
-  padding: 50px;
+  padding: 15px;
   background-color: white;
   border-radius: 15px;
 }
+
+#MainContainer {
+    padding: 10px;
+  }
 
 @media (max-width: 768px) {
   .appContainer {
     width: 500;
     padding: 5px;
+  }
+  
+  #MainContainer {
+    padding: 7px;
   }
 
   .buttonContainer {
@@ -32,12 +42,8 @@
 @media (max-width: 480px) {
   .appContainer {
     width: 300px;
-    padding: 5px;
-    height: 575px;
-  }
-
-  .MainContainer {
-    padding-top: 5px;
+    max-height: 600px;
+    overflow-y: auto;
   }
 }
 

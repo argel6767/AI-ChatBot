@@ -109,7 +109,7 @@ function App() {
       
     ) : (
       <div className='appContainer'>
-        <MainContainer>
+        <MainContainer id='MainContainer'>
           <ChatContainer>
             <MessageList
               scrollBehavior='smooth'
