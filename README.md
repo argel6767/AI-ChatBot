@@ -5,7 +5,8 @@
 
 ## How to Use
 <h3 style="margin-left: 25px">Online:</h3>
-<p style="margin-left: 25px">To SWE-Bot online simply go <a href="https://voluble-chebakia-14add6.netlify.app/">here</a>, and enjoy!</p> 
+<p style="margin-left: 26px">To use SWE-Bot online simply go <a href="https://voluble-chebakia-14add6.netlify.app/">here</a>, and enjoy!</p> 
+
 
 
 
