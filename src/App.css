@@ -20,12 +20,24 @@
 
 @media (max-width: 768px) {
   .appContainer {
-    width: 450px;
+    width: 500;
     padding: 5px;
   }
 
   .buttonContainer {
     padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .appContainer {
+    width: 300px;
+    padding: 5px;
+    height: 600px;
+  }
+
+  .MainContainer {
+    padding-top: 5px;
   }
 }
 

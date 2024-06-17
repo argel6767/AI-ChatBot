@@ -12,7 +12,7 @@ function App() {
 
   const [messages, setMessages] = useState([
     {
-      message: "Hi there! I am ChatGPT",
+      message: "Hi there! I am SWE-Bot.",
       sender: "ChatGPT",
       direction: "incoming"
     }
@@ -61,7 +61,7 @@ function App() {
     //system message: how chatGPT shall respond
     const systemMessage = {
       role: "system",
-      content: "Someone trying too hard to be cool."
+      content: "a laid back SWE whos happy to mentor and help someone learning Software Engineering and Computer Science in general."
     }
     
     //api request object
@@ -103,7 +103,7 @@ function App() {
       <div className='buttonContainer'>
         <div style={{ textAlign: "center", position:"relative"
          }}>
-        <button onClick={handleStartChat}>Start Chatting with ChatGPT Now!</button>
+        <button onClick={handleStartChat}>Start Chatting with SWE-Bot Now!</button>
       </div>
       </div>
       
@@ -113,7 +113,7 @@ function App() {
           <ChatContainer>
             <MessageList
               scrollBehavior='smooth'
-              typingIndicator={typing ? <TypingIndicator content="ChatGPT is typing..." /> : null}
+              typingIndicator={typing ? <TypingIndicator content="SWE-Bot is typing..." /> : null}
             >
               {messages.map((message, i) => (
                 <Message key={i} model={message} />
