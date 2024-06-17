@@ -5,10 +5,27 @@
   text-align: center;
 }
 
+.appContainer {
+  position: relative;
+  height: 700px;
+  width: 700px;
+}
+
 .buttonContainer {
   width: 200px;
   padding: 50px;
   background-color: white;
   border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .appContainer {
+    width: 450px;
+    padding: 5px;
+  }
+
+  .buttonContainer {
+    padding: 10px;
+  }
 }
 
