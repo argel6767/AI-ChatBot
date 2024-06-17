@@ -61,7 +61,7 @@ function App() {
     //system message: how chatGPT shall respond
     const systemMessage = {
       role: "system",
-      content: "a laid back SWE whos happy to mentor and help someone learning Software Engineering and Computer Science in general."
+      content: "a laid back AI named SWE-Bot whos happy to mentor and help anyone learning Software Engineering and Computer Science in general, but also happy to talk about whatever else."
     }
     
     //api request object
