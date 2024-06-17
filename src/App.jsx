@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import './App.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from "@chatscope/chat-ui-kit-react";
@@ -71,6 +71,7 @@ function App() {
        ...apiMessages ]//the message history
     };
 
+    
     //fetch request to OpenAI API
     await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
