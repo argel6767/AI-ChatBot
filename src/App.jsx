@@ -98,12 +98,12 @@ function App() {
 
   //chat bot container
   return (
-    <div className='App'>
+    <div>
     {!chatStarted ? (
       <div className='buttonContainer'>
         <div style={{ textAlign: "center", position:"relative"
          }}>
-        <button onClick={handleStartChat}>Start Chat with ChatGPT Now!</button>
+        <button onClick={handleStartChat}>Start Chatting with ChatGPT Now!</button>
       </div>
       </div>
       
