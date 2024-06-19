@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import './App.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from "@chatscope/chat-ui-kit-react";
+import { ClerkProvider } from '@clerk/clerk-react';
 
 //env variable
 const API_KEY = import.meta.env.VITE_API_KEY;
+
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISABLE_KEY;
 
 function App() {
   //initialze typing state as false
