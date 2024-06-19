@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import './App.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from "@chatscope/chat-ui-kit-react";
-import { ClerkProvider } from '@clerk/clerk-react';
+import { SignedOut, SignInButton, UserButton, SignedIn } from '@clerk/clerk-react';
 
 //env variable
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -101,7 +101,12 @@ function App() {
 
   //chat bot container
   return (
-    <div>
+    <header>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+      <div>
     {!chatStarted ? (
       <div className='buttonContainer'>
         <div style={{ textAlign: "center", position:"relative"
@@ -111,7 +116,9 @@ function App() {
       </div>
       
     ) : (
+      
       <div className='appContainer'>
+        <UserButton/>
         <MainContainer id='MainContainer'>
           <ChatContainer>
             <MessageList
@@ -128,6 +135,8 @@ function App() {
       </div>
     )}
   </div>
+      </SignedIn>
+    </header>
 );
 }
 
