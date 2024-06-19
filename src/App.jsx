@@ -8,8 +8,6 @@ import { ClerkProvider } from '@clerk/clerk-react';
 //env variable
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISABLE_KEY;
-
 function App() {
   //initialze typing state as false
   const [typing, setTyping] = useState(false);
