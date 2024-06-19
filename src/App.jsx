@@ -22,6 +22,13 @@ function App() {
 
   const [chatStarted, setChatStarted] = useState(false); //state to determine if user has pressed button and started chat
   
+  //retrive chatHistory if any
+  useEffect(() => {
+    const storedChatHistory = localStorage.getItem("chatHistory");
+    if (storedChatHistory) { //check if there is any
+      const chatState = JSON.parse(storedChatHistory);
+      setMessages(chatState.conversationHistory || []);
+  }}, []);
   //handle user pressing button
   const handleStartChat = () => {
     setChatStarted(true);
@@ -42,6 +49,12 @@ function App() {
 
     //set typing indicator (simulate chatgpt typing or "thinking")
     setTyping(true);
+
+    //save chat history to local data
+    const chatHistory = {
+      conversationHistory: newMessages,
+    };
+    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
 
     //process message to chatGPT
     await processMessageToOpenAIAPI(newMessages);
