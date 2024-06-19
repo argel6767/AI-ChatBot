@@ -1,6 +1,0 @@
-[[plugins]]
-package = "netlify-build-plugin-pushover"
-
-  [plugins.inputs]
-    successMessage = "Success!" #Optional
-    errorMessage = "Failure" #Optional
