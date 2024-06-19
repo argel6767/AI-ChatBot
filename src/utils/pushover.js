@@ -18,6 +18,13 @@ export async function sendPushNotifications(message, title = "New Message", prio
             priority: priority
         })
     });
+
+    //final check throws error if api call failed
+    if (!repsonse.ok) {
+        console.log(repsonse.text);
+        throw new Error(`Something went wrong ${repsonse.text}`);
+        
+    }
    
     return await repsonse.json();
 }

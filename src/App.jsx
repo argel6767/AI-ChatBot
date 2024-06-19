@@ -4,6 +4,7 @@ import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import './App.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from "@chatscope/chat-ui-kit-react";
 import { SignedOut, SignInButton, UserButton, SignedIn } from '@clerk/clerk-react';
+import { sendPushNotifications } from './utils/pushover';
 
 //env variable
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -49,6 +50,9 @@ function App() {
 
     //set typing indicator (simulate chatgpt typing or "thinking")
     setTyping(true);
+
+    //send push notifcation confirming message sent
+    sendPushNotifications("Message Successfully Sent!");
 
     //save chat history to local data
     const chatHistory = {
