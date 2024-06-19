@@ -103,7 +103,17 @@ function App() {
   return (
     <header>
       <SignedOut>
-        <SignInButton />
+        <div className='signInPage'>
+          <nav>
+            <ul>
+              <li><button><a href="https://github.com/argel6767/AI-ChatBot">Website Code</a></button></li>
+              <li><button><a href="https://www.linkedin.com/in/argel-hernandez-amaya-2421111b1">My LinkedIn</a></button></li>
+              <li><SignInButton/></li>
+            </ul>
+          </nav>
+          <img id="SWE-Bot" src="/big_robot.png" alt="SWE-Bot" />
+          <p id='SWE-Goals'>SWE-Bot is here to help your SWE and CS Needs!</p>
+        </div>
       </SignedOut>
       <SignedIn>
       <div>
