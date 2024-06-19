@@ -10,8 +10,10 @@
   height: 700px;
   width: 700px;
   padding: 20px;
-  overflow-x: auto;
+  padding-top: 30px;
 }
+
+
 
 .buttonContainer {
   width: 200px;
@@ -61,6 +63,18 @@ li {
   font-style: italic;
   font-size: 25px;
 }
+
+#userBttnContainer {
+  float: right;
+  position: fixed;
+  top: 0;
+  right: 0;
+  justify-content: center;
+  padding-top: 20px;
+  padding-right: 40px;
+  width: 100px
+}
+
 
 @media (max-width: 768px) {
   .appContainer {

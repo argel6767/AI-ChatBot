@@ -127,8 +127,9 @@ function App() {
       
     ) : (
       
-      <div className='appContainer'>
-        <UserButton/>
+      <div className="appContainer">
+        <div id='userBttnContainer'>
+          <UserButton id="user"/></div>
         <MainContainer id='MainContainer'>
           <ChatContainer>
             <MessageList
