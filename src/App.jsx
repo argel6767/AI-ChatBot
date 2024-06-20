@@ -5,6 +5,8 @@ import './App.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from "@chatscope/chat-ui-kit-react";
 import { SignedOut, SignInButton, UserButton, SignedIn } from '@clerk/clerk-react';
 import { sendPushNotifications } from './utils/pushover';
+import ActivityDashboard from './components/ActivityDashBoard';
+
 
 //env variable
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -160,6 +162,7 @@ function App() {
             <MessageInput placeholder='Type your message here' onSend={handleSend} />
           </ChatContainer>
         </MainContainer>
+        <ActivityDashboard/>
       </div>
     )}
   </div>
