@@ -106,16 +106,31 @@ function App() {
       return data.json();
     }).then((data) => {
       //find repsonse in json
-      let apiReponse = data.choices[0].message.content
+      let apiResponse = data.choices[0].message.content
+
+      //add reponse to list
+      const updatedChatMessages = [
+        ...chatMessages,
+        {
+            message: apiResponse,
+            sender: "ChatGPT",
+            direction: "incoming"
+        }
+    ];
       //add reponse to message history
-      setMessages([...chatMessages, {
-        message: apiReponse,
-        sender : "ChatGPT",
-        direction: "incoming"
-      }]);
+      setMessages(updatedChatMessages);
       //ChatGPT done "typing/thinking"
       setTyping(false);
+
+      const chatHistory = {
+        conversationHistory: updatedChatMessages
+      };
+      
+      //add reponse to local storage
+      localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
     });
+
+    
   }
 
   //chat bot container
